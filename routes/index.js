@@ -186,4 +186,28 @@ router.post("/input", (req, res) => {
   // ----------------------- //
 });
 
+router.get("/neracasaldo", (req, res) => {
+  const queryneraca = "SELECT jenis, SUM(saldo) as total_saldo from table_coa group by jenis";
+  db.query(queryneraca, (err, results) => {
+    if (err) {
+      res.send(`<script>alert('Error: ${err.message}');</script>`);
+    } else {
+      const Aktiva = results.find((row) => row.jenis === "Aktiva");
+      const Passiva = results.find((row) => row.jenis === "Passiva");
+
+      const totalSaldoAktiva = Aktiva ? Aktiva.total_saldo : 0;
+      const totalSaldoPassiva = Passiva ? Passiva.total_saldo : 0;
+
+      res.render("neracasaldo", {
+        totalSaldoAktiva,
+        totalSaldoPassiva,
+      });
+    }
+  });
+});
+
+router.get("/labarugi", (req, res) => {
+  res.render("labarugi");
+});
+
 module.exports = router;

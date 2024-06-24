@@ -24,9 +24,9 @@
           <div class="h-full px-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
               <li>
-                <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white bg-gray-300 dark:hover:bg-gray-700 group">
+                <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                   <svg
-                    class="w-5 h-5 text-gray-900 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -91,7 +91,7 @@
               <li>
                 <a href="neracasaldo" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                   <svg
-                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -104,9 +104,9 @@
                 </a>
               </li>
               <li>
-                <a href="labarugi" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                <a href="labarugi" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white bg-gray-300 dark:hover:bg-gray-700 group">
                   <svg
-                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    class="flex-shrink-0 w-5 h-5 text-gray-900 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -124,29 +124,7 @@
         </aside>
       </div>
       <div class="w-3/4 ml-72 h-64">
-        <h1 class="font-bold text-3xl mt-6"><%= title %></h1>
-        <div class="relative overflow-x-auto mt-10 rounded-xl">
-          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border-gray-300 border-x-4 rounded-xl">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-                <th scope="col" class="px-6 py-3">Kode akun</th>
-                <th scope="col" class="px-6 py-3">Nama akun</th>
-                <th scope="col" class="px-6 py-3">Jenis</th>
-                <th scope="col" class="px-6 py-3">Nominal</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% for (let user of users) { %>
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= user.kode_akun %></th>
-                <td class="px-6 py-4"><%= user.nama_akun %></td>
-                <td class="px-6 py-4"><%= user.jenis %></td>
-                <td class="px-6 py-4"><%= user.saldo%></td>
-              </tr>
-              <% } %>
-            </tbody>
-          </table>
-        </div>
+        <h1 class="font-bold text-3xl mt-6">Laporan Laba Rugi</h1>
       </div>
     </div>
 

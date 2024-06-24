@@ -88,6 +88,37 @@
                   <span class="flex-1 ms-3 whitespace-nowrap">Data Transaksi</span>
                 </a>
               </li>
+              <li>
+                <a href="neracasaldo" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                  <svg
+                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 18"
+                  >
+                    <path d="M18 0H6a2 2 0 0 0-2 2h14v12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Z" />
+                    <path d="M14 4H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM2 16v-6h12v6H2Z" />
+                  </svg>
+                  <span class="flex-1 ms-3 whitespace-nowrap">Neraca Saldo</span>
+                </a>
+              </li>
+              <li>
+                <a href="labarugi" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                  <svg
+                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"
+                    />
+                  </svg>
+                  <span class="flex-1 ms-3 whitespace-nowrap">Laporan Laba Rugi</span>
+                </a>
+              </li>
             </ul>
           </div>
         </aside>
@@ -119,7 +150,7 @@
                     id="tanggal"
                     name="tanggal"
                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                    required
+                    readonly
                   />
                 </div>
                 <div class="mb-5">
@@ -185,7 +216,31 @@
         </div>
       </div>
     </div>
+    <script>
+      // Dapatkan elemen input
+      const dateInput = document.getElementById("tanggal");
 
+      // Buat objek tanggal untuk hari ini
+      const today = new Date();
+
+      // Format tanggal agar sesuai dengan format input date (YYYY-MM-DD)
+      const yyyy = today.getFullYear();
+      let mm = today.getMonth() + 1; // Bulan dimulai dari 0
+      let dd = today.getDate();
+
+      // Tambahkan '0' di depan angka bulan dan hari jika hanya satu digit
+      if (mm < 10) {
+        mm = "0" + mm;
+      }
+      if (dd < 10) {
+        dd = "0" + dd;
+      }
+
+      const formattedDate = `${yyyy}-${mm}-${dd}`;
+
+      // Set nilai dari input date ke tanggal hari ini
+      dateInput.value = formattedDate;
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
   </body>
 </html>

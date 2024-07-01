@@ -22,6 +22,9 @@
       <div class="flex w-auto h-full">
         <aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
           <div class="h-full px-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
+            <div class="flex w-full h-16 justify-center items-center">
+              <h1 class="font-bold text-md">Sistem Informasi Akuntansi</h1>
+            </div>
             <ul class="space-y-2 font-medium">
               <li>
                 <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
@@ -125,38 +128,50 @@
       </div>
       <div class="w-3/4 ml-72 h-64">
         <h1 class="font-bold text-3xl mt-6">Neraca Saldo</h1>
-        <div class="flex col-2 h-64 w-1/2">
-          <div class="flex h-60 w-1/2">
+        <div class="flex col-2 w-full">
+          <div class="flex h-screen w-1/2">
             <div class="relative overflow-x-auto mt-10 sm:rounded-lg">
-              <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <table class="w-full h-auto text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
                   <tr>
-                    <th scope="col" class="px-6 py-3 bg-gray-200 dark:bg-gray-800">Jenis</th>
-                    <th scope="col" class="px-6 py-3 bg-gray-200">Saldo Akhir</th>
+                    <th scope="col" class="px-6 py-3 bg-gray-200 dark:bg-gray-800">Aktiva</th>
+                    <th scope="col" class="px-6 py-3 bg-gray-200">Saldo</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <% ambil.forEach (ambil => { %>
                   <tr class="border-b border-gray-200 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white dark:bg-gray-800">Aktiva</th>
-                    <td class="px-6 py-4"><%= totalSaldoAktiva %></td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white dark:bg-gray-800"><%= ambil.nama_akun %></th>
+                    <td class="px-6 py-4"><%= ambil.saldo %></td>
+                  </tr>
+                  <% }) %>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white dark:bg-gray-800">Total Saldo:</th>
+                    <td class="px-6 py-4"><%= AktivaAkhir %></td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="flex h-60 w-1/2">
+          <div class="flex h-screen w-1/2">
             <div class="relative overflow-x-auto mt-10 sm:rounded-lg">
-              <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <table class="w-full h-auto text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
                   <tr>
-                    <th scope="col" class="px-6 py-3 bg-gray-200 dark:bg-gray-800">Jenis</th>
-                    <th scope="col" class="px-6 py-3 bg-gray-200">Saldo Akhir</th>
+                    <th scope="col" class="px-6 py-3 bg-gray-200 dark:bg-gray-800">Passiva</th>
+                    <th scope="col" class="px-6 py-3 bg-gray-200">Saldo</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <% ambil2.forEach (ambil2 => { %>
                   <tr class="border-b border-gray-200 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white dark:bg-gray-800">Passiva</th>
-                    <td class="px-6 py-4"><%= totalSaldoPassiva %></td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white dark:bg-gray-800"><%= ambil2.nama_akun %></th>
+                    <td class="px-6 py-4"><%= ambil2.saldo %></td>
+                  </tr>
+                  <% }) %>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white dark:bg-gray-800">Total Saldo:</th>
+                    <td class="px-6 py-4"><%= PassivaAkhir %></td>
                   </tr>
                 </tbody>
               </table>

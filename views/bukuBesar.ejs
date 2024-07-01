@@ -22,6 +22,9 @@
       <div class="flex w-auto h-full">
         <aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
           <div class="h-full px-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
+            <div class="flex w-full h-16 justify-center items-center">
+              <h1 class="font-bold text-md">Sistem Informasi Akuntansi</h1>
+            </div>
             <ul class="space-y-2 font-medium">
               <li>
                 <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
@@ -125,49 +128,54 @@
       </div>
       <div class="flex-col w-full h-screen ml-64">
         <div class="w-3/4 h-auto mb-5 ml-10">
-          <form class="max-w-md mt-10" action="caribukubesar" method="post">
+          <form class="max-w-md mt-10" action="caribukubesar" method="get">
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div class="relative">
-              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                </svg>
-              </div>
-              <input
-                type="text"
-                id="bukuBesar"
-                name="bukuBesar"
-                class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Kas, Peralatan...."
-                required
-              />
+              <label for="selectAkun" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Akun:</label>
+              <select
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                id="selectAkun"
+                name="selectedAccount"
+              >
+                <option value="">Pilih Akun</option>
+                <% accounts.forEach(account => { %>
+                <option value="<%= account %>"><%= account %></option>
+                <% }) %>
+              </select>
               <button
                 type="submit"
-                class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                class="text-white absolute end-4 bottom-0.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Search
               </button>
             </div>
           </form>
         </div>
-        <div class="flex-col ml-10 w-full h-full">
-          <h1 class="font-bold text-3xl mt-6">Daftar Buku Besar</h1>
-          <div class="relative w-64 overflow-x-auto mt-10 rounded-xl">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border-4 border-gray-300">
-              <thead class="text-xs text-gray-700 uppercase bg-gray-300 text-center dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                  <th scope="col" class="px-6 py-3">Nama Buku</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% for (buku of listbb) { %>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-center">
-                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= buku.nama_akun %></th>
-                </tr>
-                <% } %>
-              </tbody>
-            </table>
-          </div>
+        <div class="relative overflow-x-auto mt-10 rounded-xl w-3/4 ml-10">
+          <% if (ledger.length > 0) { %>
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border-4 border-gray-200 rounded-xl">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+              <tr class="text-center">
+                <th scope="col" class="px-6 py-3">Tanggal</th>
+                <th scope="col" class="px-6 py-3">Keterangan</th>
+                <th scope="col" class="px-6 py-3">Debit</th>
+                <th scope="col" class="px-6 py-3">Kredit</th>
+                <th scope="col" class="px-6 py-3">Saldo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% ledger.forEach(entry => { %>
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-center">
+                <td class="px-6 py-4"><%= entry.tanggal %></td>
+                <td class="px-6 py-4"><%= entry.nama_transaksi %></td>
+                <td class="px-6 py-4"><%= entry.debit %></td>
+                <td class="px-6 py-4"><%= entry.kredit %></td>
+                <td class="px-6 py-4"><%= entry.saldo %></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+          <% } %>
         </div>
       </div>
     </div>

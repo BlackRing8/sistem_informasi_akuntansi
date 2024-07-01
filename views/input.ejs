@@ -22,6 +22,9 @@
       <div class="flex w-auto h-full">
         <aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
           <div class="h-full px-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
+            <div class="flex w-full h-16 justify-center items-center">
+              <h1 class="font-bold text-md">Sistem Informasi Akuntansi</h1>
+            </div>
             <ul class="space-y-2 font-medium">
               <li>
                 <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
@@ -128,7 +131,7 @@
         <div class="flex h-12 ml-7 mt-6">
           <h1 class="font-bold text-3xl">Input Transaksi</h1>
         </div>
-        <div class="flex h-auto w-full">
+        <div class="flex h-[600px] w-full">
           <form class="max-w-xl ml-7" action="" method="POST" id="formTransaction">
             <div class="flex flex-wrap h-auto justify-between w-full">
               <div class="mr-10">
@@ -163,8 +166,6 @@
                     required
                   />
                 </div>
-              </div>
-              <div class="mx-10">
                 <div class="mb-5">
                   <label for="akun_debit" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Akun Debit</label>
                   <select
@@ -196,14 +197,16 @@
                 <div class="mb-5">
                   <label for="nominal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nominal</label>
                   <input
-                    type="number"
+                    type="text"
                     id="nominal"
                     name="nominal"
+                    onkeyup="formatRupiah(this)"
                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                     required
                   />
                 </div>
               </div>
+              <div class="mx-10"></div>
             </div>
 
             <button
@@ -240,6 +243,19 @@
 
       // Set nilai dari input date ke tanggal hari ini
       dateInput.value = formattedDate;
+
+      function formatRupiah(input) {
+        // Mengambil nilai tanpa titik dan koma
+        let nilai = input.value.replace(/[^\d]/g, "");
+
+        // Memformat nilai ke dalam format rupiah
+        if (nilai != "") {
+          nilai = parseInt(nilai, 10);
+          input.value = "Rp " + nilai.toLocaleString();
+        } else {
+          input.value = "";
+        }
+      }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
   </body>

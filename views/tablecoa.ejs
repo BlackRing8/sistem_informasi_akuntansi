@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistem Informasi Akuntansi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {},
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="flex bg-white w-full h-auto">
+      <div class="flex w-auto h-full">
+        <aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+          <div class="h-full px-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
+            <div class="flex w-full h-16 justify-center items-center">
+              <h1 class="font-bold text-xl">Sistem Informasi Akuntansi</h1>
+            </div>
+
+            <ul class="space-y-2 font-medium">
+              <li>
+                <a href="/tablecoa" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white bg-gray-300 dark:hover:bg-gray-700 group">
+                  <svg
+                    class="w-5 h-5 text-gray-900 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 22 21"
+                  >
+                    <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                    <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                  </svg>
+                  <span class="ms-3">Data Saldo</span>
+                </a>
+              </li>
+              <li>
+                <a href="/bukuBesar" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                  <svg
+                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 16 20"
+                  >
+                    <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
+                  </svg>
+                  <span class="ms-3">Buku besar</span>
+                </a>
+              </li>
+              <li>
+                <a href="input" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                  <svg
+                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
+                    <path
+                      d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z"
+                    />
+                    <path
+                      d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z"
+                    />
+                  </svg>
+                  <span class="flex-1 ms-3 whitespace-nowrap">Input Transaksi</span>
+                </a>
+              </li>
+              <li>
+                <a href="datatransaksi" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                  <svg
+                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 18 18"
+                  >
+                    <path
+                      d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"
+                    />
+                  </svg>
+                  <span class="flex-1 ms-3 whitespace-nowrap">Data Transaksi</span>
+                </a>
+              </li>
+              <li>
+                <a href="neracasaldo" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                  <svg
+                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 18"
+                  >
+                    <path d="M18 0H6a2 2 0 0 0-2 2h14v12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Z" />
+                    <path d="M14 4H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM2 16v-6h12v6H2Z" />
+                  </svg>
+                  <span class="flex-1 ms-3 whitespace-nowrap">Neraca Saldo</span>
+                </a>
+              </li>
+              <li>
+                <a href="labarugi" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                  <svg
+                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"
+                    />
+                  </svg>
+                  <span class="flex-1 ms-3 whitespace-nowrap">Laporan Laba Rugi</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+      <div class="w-3/4 ml-72 h-64">
+        <h1 class="font-bold text-3xl mt-6"><%= title %></h1>
+        <button
+          data-modal-target="crud-modal"
+          data-modal-toggle="crud-modal"
+          class="block mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button"
+        >
+          Tambah Akun
+        </button>
+        <div class="relative overflow-x-auto mt-10 rounded-xl">
+          <div class="flex w-3/4 h-auto overflow-x-auto rounded-xl">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border-gray-300 border-x-4 rounded-xl">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
+                <tr class="text-center">
+                  <th scope="col" class="px-6 py-3">Kode akun</th>
+                  <th scope="col" class="px-6 py-3">Nama akun</th>
+                  <th scope="col" class="px-6 py-3">Jenis</th>
+                  <th scope="col" class="px-6 py-3">Nominal</th>
+                  <th scope="col" class="px-6 py-3">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% users.forEach (user => { %>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-center">
+                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= user.kode_akun %></th>
+                  <td class="px-6 py-4"><%= user.nama_akun %></td>
+                  <td class="px-6 py-4"><%= user.jenis %></td>
+                  <td class="px-6 py-4"><%= user.saldo %></td>
+                  <td class="px-6 py-4">
+                    <button
+                      data-modal-target="default-modal"
+                      data-modal-toggle="default-modal"
+                      data-user="<%= JSON.stringify(user) %>"
+                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      edit
+                    </button>
+                    <form method="POST" action="/deleteAccount" style="display: inline">
+                      <input type="hidden" name="account" value="<%= user.nama_akun %>" />
+                      <button type="submit" class="py-2 px-4 bg-red-500 text-white rounded-md">Hapus</button>
+                    </form>
+                  </td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal box -->
+    <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Ubah Data akun:</h3>
+            <button
+              type="button"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              data-modal-hide="default-modal"
+            >
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="p-4 md:p-5 space-y-4">
+            <form method="POST" action="/editAccount">
+              <div class="form-group mb-2">
+                <label for="oldAccountName" class="block text-gray-700">Nama Akun lama: </label>
+                <input type="text" class="form-control w-full px-3 py-2 border border-gray-300 rounded-md mb-2" id="oldAccountName" name="oldAccountName" readonly />
+
+                <label for="newAccountName" class="block text-gray-700">Nama Akun Baru:</label>
+                <input type="text" class="form-control w-full px-3 py-2 border border-gray-300 rounded-md" id="newAccountName" name="newAccountName" required />
+
+                <label for="saldoAkunLama" class="block text-gray-700">Nominal Akun lama: </label>
+                <input type="text" class="form-control w-full px-3 py-2 border border-gray-300 rounded-md mb-2" id="saldoAkunLama" name="saldoAkunLama" disabled />
+
+                <label for="saldoAkunBaru" class="block text-gray-700">Saldo Akun Baru:</label>
+                <input type="text" onkeyup="formatRupiah(this)" class="form-control w-full px-3 py-2 border border-gray-300 rounded-md" id="saldoAkunBaru" name="saldoAkunBaru" required />
+              </div>
+              <button
+                type="submit"
+                class="text-white bg-blue-700 hover:bg-blue-800 mt-4 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Simpan Perubahan
+              </button>
+              <button
+                data-modal-hide="default-modal"
+                type="button"
+                class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+              >
+                batal
+              </button>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main modal -->
+    <div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Tambah Akun Baru</h3>
+            <button
+              type="button"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              data-modal-toggle="crud-modal"
+            >
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <form class="p-4 md:p-5" method="POST" action="/tambahAkun">
+            <div class="grid gap-4 mb-4 grid-cols-2">
+              <div class="col-span-2">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Akun</label>
+                <input
+                  type="number"
+                  name="kode_akun_tambah"
+                  id="kode_akun_tambah"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Contoh: 1134, 4450"
+                />
+              </div>
+              <div class="col-span-2 sm:col-span-1">
+                <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Akun</label>
+                <input
+                  type="text"
+                  name="nama_akun_tambah"
+                  id="nama_akun_tambah"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="perlengkapan..."
+                  required
+                />
+              </div>
+              <div class="col-span-2 sm:col-span-1">
+                <label for="jenis_tambah" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis</label>
+                <select
+                  id="jenis_tambah"
+                  name="jenis_tambah"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  required
+                >
+                  <option selected="">Pilih jenis</option>
+                  <option value="Passiva">Passiva</option>
+                  <option value="Aktiva">Aktiva</option>
+                </select>
+              </div>
+              <div class="col-span-2">
+                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Description</label>
+                <input
+                  type="number"
+                  name="saldo_tambah"
+                  id="saldo_tambah"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="0"
+                  disabled
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path>
+              </svg>
+              tambah Akun baru
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- -------- -->
+    <script>
+      document.querySelectorAll('[data-modal-toggle="default-modal"]').forEach((button) => {
+        button.addEventListener("click", function () {
+          const user = JSON.parse(this.getAttribute("data-user"));
+          document.getElementById("oldAccountName").value = user.nama_akun;
+          document.getElementById("saldoAkunLama").value = user.saldo;
+        });
+      });
+
+      function formatRupiah(input) {
+        // Mengambil nilai tanpa titik dan koma
+        let nilai = input.value.replace(/[^\d]/g, "");
+
+        // Memformat nilai ke dalam format rupiah
+        if (nilai != "") {
+          nilai = parseInt(nilai, 10);
+          input.value = "Rp " + nilai.toLocaleString();
+        } else {
+          input.value = "";
+        }
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  </body>
+</html>

@@ -23,11 +23,11 @@
         <aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
           <div class="h-full px-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
             <div class="flex w-full h-16 justify-center items-center">
-              <h1 class="font-bold text-md">Sistem Informasi Akuntansi</h1>
+              <h1 class="font-bold text-xl">Sistem Informasi Akuntansi</h1>
             </div>
             <ul class="space-y-2 font-medium">
               <li>
-                <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                <a href="/tablecoa" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                   <svg
                     class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                     aria-hidden="true"
@@ -126,8 +126,47 @@
           </div>
         </aside>
       </div>
-      <div class="w-3/4 ml-72 h-64">
-        <h1 class="font-bold text-3xl mt-6">Laporan Laba Rugi</h1>
+      <div class="w-full h-screen flex justify-center items-center">
+        <div class="bg-white border-2 border-black w-[500px] h-[400px] flex-cols">
+          <div class="flex border-b-2 border-black w-full h-1/4 justify-center items-center">
+            <h1 class="text-3xl font-bold underline">LAPORAN LABA RUGI</h1>
+          </div>
+          <div class="cols w-full h-3/4">
+            <div class="relative overflow-x-auto">
+              <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-black bg-gray-400 uppercase dark:text-gray-400">
+                  <tr>
+                    <th scope="col" class="px-6 py-3">Keterangan</th>
+                    <th scope="col" class="px-6 py-3">Nominal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="bg-white dark:bg-gray-800">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Total Pendapatan:</th>
+                    <td class="px-6 py-4 text-black"><%= totalPendapatan %></td>
+                  </tr>
+                  <tr class="bg-white dark:bg-gray-800">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Total Beban:</th>
+                    <td class="px-6 py-4 text-black"><%= totalBeban %></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="flex w-full h-auto bg-gray-300 justify-center mt-24">
+                <div class="flex w-1/2 h-14">
+                  <h1 class="ml-6 text-2xl font-bold">LABA RUGI:</h1>
+                </div>
+                <div class="flex w-1/2 h-14">
+                  <h1 class="ml-16 text-2xl font-bold"><%= labaRugi %></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 
+        <p>Total Pendapatan: </p>
+        <p>Total Beban: </p>
+        <h2>Laba Rugi: </h2>
+       -->
       </div>
     </div>
 

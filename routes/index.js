@@ -1,5 +1,7 @@
 const json = require("body-parser/lib/types/json");
 const express = require("express");
+const app = express();
+const session = require("express-session");
 const router = express.Router();
 const mysql = require("mysql");
 const md5 = require("md5");
@@ -11,7 +13,22 @@ const db = mysql.createConnection({
   password: "",
 });
 
+app.use(
+  session({
+    secret: "your_secret_key", // Ganti dengan kunci rahasia Anda
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
 // FORM LOGIN
+const checkAuthenticated = (req, res, next) => {
+  if (req.session.user) {
+    return next();
+  }
+  res.redirect("/login");
+};
+
 router.get("/", (req, res) => {
   res.render("index");
 });
@@ -31,7 +48,7 @@ router.post("/login", (req, res) => {
       return res.status(401).json({ message: "tidak ada username ini" });
     }
     if (result.length > 0) {
-      res.send(`<script> window.location.href = '/tablecoa';</script>`);
+      return res.send(`<script> window.location.href = '/tablecoa';</script>`);
     }
   });
 });
@@ -58,21 +75,21 @@ router.get("/tablecoa", (req, res) => {
     users.forEach((user) => {
       user.saldo = formatRupiah(user.saldo);
     });
-    res.render("tablecoa", { users: users, title: "Daftar Akun" });
+    res.render("tablecoa", { users: users, title: "Daftar table coa" });
   });
 });
 
 router.post("/editAccount", (req, res) => {
-  const { oldAccountName, newAccountName, saldoAkunLama, saldoAkunBaru } = req.body;
+  const { oldAccountName, newAccountName, saldoAkunLama, saldoAkunBaru, jenisBaru } = req.body;
   // mengubah format nilai saldo
   const nilaiAkhir = parseRupiah(saldoAkunBaru);
-  const query_edit = `UPDATE table_coa SET nama_akun = ?, saldo = ? WHERE nama_akun = ?`;
-  db.query(query_edit, [newAccountName, nilaiAkhir, oldAccountName], (error) => {
+  const query_edit = `UPDATE table_coa SET nama_akun = ?,jenis = ?, saldo = ? WHERE nama_akun = ?`;
+  db.query(query_edit, [newAccountName, jenisBaru, nilaiAkhir, oldAccountName], (error) => {
     if (error) {
       return res.status(500).send(error);
     }
 
-    res.send(`<script>alert('Data berhasil diubah.'); window.location.href = '/';</script>`);
+    res.send(`<script>alert('Data berhasil diubah.'); window.location.href = '/tablecoa';</script>`);
   });
 });
 
@@ -171,6 +188,8 @@ router.post("/input", (req, res) => {
         queryUpdateDebit = `UPDATE table_coa SET saldo = saldo + ? WHERE nama_akun = ?`;
       } else if (jenisDebit === "Passiva") {
         queryUpdateDebit = `UPDATE table_coa SET saldo = saldo - ? WHERE nama_akun = ?`;
+      } else if (jenisDebit === "beban") {
+        queryUpdateDebit = `UPDATE table_coa SET saldo = saldo + ? WHERE nama_akun = ?`;
       }
       db.query(queryUpdateDebit, [nominalF, akun_debit], (err) => {
         if (err) {
@@ -278,6 +297,11 @@ router.get("/labarugi", (req, res) => {
     });
   });
 });
+
+// router.get("/cobalabarugi", (req, res) => {
+//   const pendapatanAkun = `SELECT * FROM nama_tabel WHERE kode_akun LIKE '4%' `;
+//   const bebanAkun = `SELECT * FROM nama_tabel WHERE kode_akun LIKE '6%'`;
+// });
 
 /* Buku besar */
 
